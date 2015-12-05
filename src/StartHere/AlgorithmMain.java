@@ -11,6 +11,7 @@ import java.util.Set;
 import org.jgrapht.graph.DefaultDirectedWeightedGraph;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.traverse.BreadthFirstIterator;
+import org.jgrapht.traverse.ClosestFirstIterator;
 import org.jgrapht.traverse.GraphIterator;
 
 import Graph.GraphNode;
@@ -40,20 +41,23 @@ public class AlgorithmMain {
 		Set<GraphNode> vertex_set = gr_t.vertexSet();
 		
 		Iterator<GraphNode> vertex_itr = vertex_set.iterator();
-		
-		//while(vertex_itr.hasNext()){
+		int ctr = 0;
+		while(vertex_itr.hasNext()){
 			
 			GraphNode vertex = vertex_itr.next();
-			GraphIterator<GraphNode, DefaultWeightedEdge> bfs_itr = 
-	                new BreadthFirstIterator<GraphNode, DefaultWeightedEdge>(gr_t,vertex);
-			int ctr = 0;
+			GraphIterator<GraphNode, DefaultWeightedEdge> bfs_itr = new 
+					ClosestFirstIterator<GraphNode, DefaultWeightedEdge>(gr_t,vertex,3);
+
 			while(bfs_itr.hasNext()){
 				GraphNode bfs_next_node = bfs_itr.next();
-				System.out.println( bfs_next_node +"->"+ctr);
-				ctr++;
+				
 			}
+			System.out.println("Vertex Count -> "+ctr);
+			ctr++;
+		}
             
             
 	}
 
 }
+
