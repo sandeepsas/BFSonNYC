@@ -1,5 +1,7 @@
 package Graph;
 
+import java.io.Serializable;
+
 
 /******************************************************************************
  *  Compilation:  javac DirectedEdge.java
@@ -10,12 +12,15 @@ package Graph;
  *
  ******************************************************************************/
 /**
- *  Edge storage class
  *  @author Sandeep Sasidharan
  */
 
-public class DirectedEdge { 
-    private final GraphNode startNode;
+public class DirectedEdge implements Serializable{ 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final GraphNode startNode;
     private final GraphNode endNode;
     private double length;
     private final int speedMax;
@@ -121,7 +126,7 @@ public class DirectedEdge {
 	}
     
     public String toString() {
-        return startNode.getId()  + "->" + endNode.getId() + " " + speedMax;
+        return startNode.getId()  + "->" + endNode.getId() + " " + weight;
     }
 
 	public String getName() {

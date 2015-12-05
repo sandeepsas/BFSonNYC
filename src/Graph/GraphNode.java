@@ -1,14 +1,18 @@
 package Graph;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
- * Graph Node - vertex
  * 
  * @author Sandeep Sasidharan
  *
  */
-public class GraphNode {
+public class GraphNode implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double lon;
 	private double lat;
 	private long id;
@@ -62,7 +66,7 @@ public class GraphNode {
 	
 	public String toString(){
 		String rt_str;
-		rt_str = "("+this.lat+ "," + this.lon+")";
+		rt_str = this.id+", ("+this.lat+ "," + this.lon+")";
 		return	rt_str;
 	}
 	
